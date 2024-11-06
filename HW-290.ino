@@ -153,17 +153,20 @@ void loop(void) {
 
   if(sum_s2 != old_s2) {
     old_s2 = sum_s2;
-    mqttClient.publish("home/jardim/estufa/sensor_de_umidade_de_solo/s2", s2_str);
+    String message = TOPICO_MQTT + "/s2";
+    mqttClient.publish(message.c_str(), s2_str);
   }
 
   if(sum_s3 != old_s3) {
     old_s3 = sum_s3;
-    mqttClient.publish("home/jardim/estufa/sensor_de_umidade_de_solo/s3", s3_str);
+    String message = TOPICO_MQTT + "/s3";
+    mqttClient.publish(message.c_str(), s3_str);
   }
 
   if(sum_s4 != old_s4) {
     old_s4 = sum_s4;
-    mqttClient.publish("home/jardim/estufa/sensor_de_umidade_de_solo/s4", s4_str);
+    String message = TOPICO_MQTT + "/s4";
+    mqttClient.publish(message.c_str(), s4_str);
   }
 
   u8g2.drawStr(2,20,s1_str);
